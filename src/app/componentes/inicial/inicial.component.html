@@ -1,55 +1,72 @@
-<h2 class="text-center"> Minhas Tarefas</h2>
-<div class="col-12 text-end mb-3">
-  <i class="bi bi-search"></i>
-  <input type="text" placeholder="Pesquise:" (keyup)="pesquisar($event)">
-</div>
-<table class="table table-dark table-hover table-bordered table-sm">
-  <thead>
-    <tr>
-      <th (click)="ordenar()" class="ordenar-tarefa">
-        <i class="bi bi-sort-alpha-down" *ngIf="ascendente()"></i>
-        <i class="bi bi-sort-alpha-down-alt" *ngIf="!ascendente()"></i>
-        Tarefa
-      </th>
-      <th>Concluída</th>
-      <th class="text-center">
-        <button type="button" class="btn btn-success btn-sm" [routerLink]="['/cadastrar']">
-          <i class="bi bi-plus-lg"></i>
-          Nova
-        </button>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let tarefa of tarefas">
-      <td [ngClass]="{
+<br>
+<div class="mask d-flex h-100">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-7 col-xl-11">
+        <div class="card mask-custom">
+          <div class="card-body p-4 text-black">
+            <div class="my-4">
+
+              <h2 class="text-center"> Minhas Tarefas</h2>
+              <div class="col-12 text-end mb-3">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Pesquise:" (keyup)="pesquisar($event)">
+              </div>
+              <table class="table table-dark table-hover table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th (click)="ordenar()" class="ordenar-tarefa">
+                      <i class="bi bi-sort-alpha-down" *ngIf="ascendente()"></i>
+                      <i class="bi bi-sort-alpha-down-alt" *ngIf="!ascendente()"></i>
+                      Tarefa
+                    </th>
+                    <th>Concluída</th>
+                    <th class="text-center">
+                      <button type="button" class="btn btn-success btn-sm" [routerLink]="['/cadastrar']">
+                        <i class="bi bi-plus-lg"></i>
+                        Nova
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let tarefa of tarefas">
+                    <td [ngClass]="{
           'table-success': !tarefa.concluido,
           concluido: tarefa.concluido
         }">
-        {{ tarefa.nome }}
-      </td>
-      <td>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" [checked]="tarefa.concluido" (click)="concluir(tarefa.id)" />
-        </div>
-      </td>
-      <td class="text-center">
-        <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/editar/' + tarefa.id]">
-          <i class="bi bi-pencil-fill"></i>
-          Editar
-        </button>
-         
-        <button type="button" class="btn btn-danger btn-sm" (click)="removerId(tarefa.id)" data-bs-toggle="modal"
-          data-bs-target="#modalTarefa">
-          <i class="bi bi-x-lg"></i>
-          Remover
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+                      {{ tarefa.nome }}
+                    </td>
+                    <td>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" [checked]="tarefa.concluido"
+                          (click)="concluir(tarefa.id)" />
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/editar/' + tarefa.id]">
+                        <i class="bi bi-pencil-fill"></i>
+                        Editar
+                      </button>
+                       
+                      <button type="button" class="btn btn-danger btn-sm" (click)="removerId(tarefa.id)"
+                        data-bs-toggle="modal" data-bs-target="#modalTarefa">
+                        <i class="bi bi-x-lg"></i>
+                        Remover
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
-<p *ngIf="tarefas.length === 0">Nenhuma tarefa cadastrada.</p>
+              <p *ngIf="tarefas.length === 0">Nenhuma tarefa cadastrada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="modalTarefa" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
