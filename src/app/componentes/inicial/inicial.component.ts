@@ -1,3 +1,4 @@
+import { PersonService } from './../../servicos/person.service';
 import { Component, OnInit } from '@angular/core';
 import { Tarefa } from 'src/app/models/tarefa.module';
 import { TarefaService } from 'src/app/servicos/tarefa.service';
@@ -11,14 +12,27 @@ import { Ordenacao } from 'src/app/utils/ordenacao.enum';
 export class InicialComponent implements OnInit {
 
   tarefas:Tarefa[]=[];
+  usuarios=[{nome:'alison', sobrenome:'avelino', data: new Date(Date.now()), ativo: true}, 
+  {nome:'alison', sobrenome:'avelino', data: new Date(Date.now()), ativo: true}];
   tarefa: Tarefa = new Tarefa('', '', false);
   ordem: Ordenacao = Ordenacao.ASC;
   filtro: string= '';
   pagina: number= 0;
-  constructor(private tarefaService: TarefaService) { }
+  constructor(private tarefaService: TarefaService, private personService: PersonService) { }
 
   ngOnInit(): void {
     this.carregarTarefas();
+    this.personService.getAll();
+  }
+
+  getAll(): void{
+    this.personService.getAll().subscribe((data:any) => {
+      this.usuarios = data
+    });
+  }
+
+  create(): void{
+
   }
 
   concluir(id: string) {

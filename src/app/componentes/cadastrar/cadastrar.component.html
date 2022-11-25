@@ -8,14 +8,20 @@
             <div class="my-4">
               <h2 class="text-center">
                 <i class="bi bi-card-list"></i>
-                Cadastro de Tarefas
+                Cadastro de Usuário
               </h2>
               <form [formGroup]="form" novalidate>
                 <div class="mb-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
 
                   <a class="navbar-brand"></a>
                   <input type="text" id="nome" formControlName="nome" class="form-control"
-                    [ngClass]="cssValidacao('nome')" placeholder="Digite a tarefa..." />
+                    [ngClass]="cssValidacao('nome')" placeholder="Digite o nome..." />
+                </div>
+                <div class="mb-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+
+                  <a class="navbar-brand"></a>
+                  <input type="text" id="sobrenome" formControlName="sobrenome" class="form-control"
+                    [ngClass]="cssValidacao('sobrenome')" placeholder="Digite o sobrenome..." />
                 </div>
                 <div class="mb-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4 text-center">
                   <button type="button" class="btn btn-success btn-sm" (click)="cadastrar()" [disabled]="form.invalid"
@@ -45,16 +51,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalTarefaLabel">Cadastro de tarefa</h5>
+        <h5 class="modal-title" id="modalTarefaLabel">Cadastro de Usuário</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">Tarefa cadastrada com sucesso!</div>
+      <div class="modal-body">Usuário cadastrado com sucesso!</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-bs-dismiss="modal">
-          Nova tarefa
+          Nova usuário
         </button>
         <button type="button" class="btn btn-info" data-bs-dismiss="modal" [routerLink]="['']">
-          Listar tarefas
+          Listar usuários
         </button>
       </div>
     </div>

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  ambiente: 'Desenvolvimento'
+  ambiente: 'Desenvolvimento',
+  baseUrl: 'http://localhost:8080/person'
 };
 
 /*

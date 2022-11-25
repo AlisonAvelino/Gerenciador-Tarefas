@@ -36,7 +36,7 @@ export class TarefaService {
     tarefa.concluido= false;
     const tarefas = this.listarTodos();
     tarefas.push(tarefa);
-    this.persistir(tarefas);
+    //this.persistir(tarefas);
 
   }
 
@@ -55,12 +55,12 @@ export class TarefaService {
       }
       return t;
     });
-    this.persistir(tarefas);
+    //this.persistir(tarefas);
   }
 
   remover(tarefaId: string) {
     const tarefas = this.listarTodos().filter(tarefa => tarefa.id !== tarefaId);
-    this.persistir(tarefas);
+    //this.persistir(tarefas);
   }
 
   concluir(id: string) {
@@ -70,7 +70,7 @@ export class TarefaService {
         tarefa.concluido = !tarefa.concluido;
       }
     }
-    this.persistir(tarefas);
+    //this.persistir(tarefas);
   }
 
   numeroPaginas(filtro: string) {
@@ -86,9 +86,9 @@ export class TarefaService {
         tarefa.nome.toLowerCase().startsWith(filtro.toLowerCase()));
   }
 
-  private persistir(tarefas: Tarefa[]){
-    localStorage['tarefas'] = JSON.stringify(tarefas);
-  }
+  // private persistir(tarefas: Tarefa[]){
+  //   localStorage['tarefas'] = JSON.stringify(tarefas);
+  // }
 
 
 }

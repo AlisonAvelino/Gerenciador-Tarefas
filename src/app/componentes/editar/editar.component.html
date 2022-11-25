@@ -7,15 +7,15 @@
           <div class="card-body p-4 text-black">
             <div class="my-4">
               <h2 class="text-center">
-                <i class="bi bi-pencil-fill"></i>Editar tarefa
+                <i class="bi bi-pencil-fill"></i>Editar usuário
               </h2>
               <form [formGroup]="form" novalidate>
                 <div class="mb-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
                   <input type="text" id="nome" formControlName="nome" class="form-control"
-                    [ngClass]="cssValidacao('nome')" placeholder="Digite a tarefa..." />
+                    [ngClass]="cssValidacao('nome')" placeholder="Digite o nome..." />
                   <span class="invalid-feedback"
                     *ngIf="form.controls.nome.touched && form.controls.nome.errors?.required">
-                    <i class="bi-file-excel-fill"></i> Digite a tarefa.
+                    <i class="bi-file-excel-fill"></i> Digite o nome.
                   </span>
                   <span class="invalid-feedback"
                     *ngIf="form.controls.nome.touched && form.controls.nome.errors?.minlength">

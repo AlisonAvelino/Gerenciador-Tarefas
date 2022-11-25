@@ -6,8 +6,8 @@ button{
     
 }
 th:first-child {
-    width: 60%;
-  }
+    width: 80%;
+}
 
 .ordenar-tarefa {
     cursor: pointer;
